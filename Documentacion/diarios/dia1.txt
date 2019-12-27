@@ -1,0 +1,47 @@
+Dia 26/12/2019
+
+Requerimientos de negocio
+
+    Requerimientos y reglas de usuario (modelo de negocio)
+
+Requerimientos de usuario
+
+    Requerimientos de usuario, atributos de calidad y Requerimientos no funcionales (roles, seguridad, historia de usuario generica)
+
+Requerimientos funcionales
+
+    Requerimientos de sistema, funcionales y restriciones (definiciones tecnicas y mas especificas)
+    Nota de restriciones: recursos web, de red, concurrencia, etc.
+
+___________________________________________________________________________________________________________________________________________________________________________
+Frontend 
+    Admin web
+        Instalar entorno Angular con plantilla de Admin
+        Repositorio en github nuevo
+        Estructurar el proyecto
+        Definir mockups
+        Navegacion y routing 
+        Revisar tema de autenticación
+        
+    Cliente mobile
+        Definir mockups
+        Entorno de desarrollo PWA (investigar)
+        Maquetacion de rutas 
+
+Backend
+    API
+        Crear entorno de desarrollo
+        Repositorio en github para el proyecto
+        Revisar tema de autenticacion
+        Definir modelos y Bd 
+        Definir endpoints 
+        CRUDS de recursos
+
+Documentacion y planning:
+    Crear y Estructurar el documento inicial (busca referencias de documentos viejos y del seminario)
+    Revisar swagger (opcional)
+    Definir historias de usuario
+    Definir requerimientos funcionales y flujos tecnicos (Revisa el seminario)
+___________________________________________________________________________________________________________________________________________________________________________
+
+Estructure el proyecto en trello, cree el repo y organicé carpetas
