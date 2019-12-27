@@ -1,0 +1,7 @@
+Dia 27/12/2019
+
+Descargue la plantilla angular admin de https://demos.creative-tim.com/paper-dashboard-angular/#/documentation/tutorial
+
+La idea es integrar esta plantilla con el futuro backend
+
+Limpie la plantilla para dejarla en una version mas "light" con pocas opciones, la idea es simple para luego de hacer mock ups agregarle todo mejor.
