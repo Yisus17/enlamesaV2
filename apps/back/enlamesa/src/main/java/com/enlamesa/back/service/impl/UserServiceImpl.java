@@ -32,18 +32,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User updateUser(User user) {
-		int idUser = user.getIdUser();
-		Optional<User> userFromBDOptional = userRepository.findById(idUser);
 		
-		if(userFromBDOptional.isPresent()) {
-			User userFromBD = userFromBDOptional.get();
-			userFromBD.setUsername(user.getUsername());
-			userFromBD.setPassword(user.getPassword());
-			return userRepository.save(userFromBD);
-		}else {
-			return userRepository.save(user);
+		User userToUpdate = userRepository.findByUsername(user.getUsername());
+		if(userToUpdate!=null) {
+			userToUpdate.setUsername(user.getUsername());
+			userToUpdate.setPassword(user.getPassword());
+			return userRepository.save(userToUpdate);
+		
 		}
-
+		return null;	
 	}
 
 	@Override
@@ -56,10 +53,12 @@ public class UserServiceImpl implements UserService {
 	
 	private boolean usernameExist(User user) {
 		User userAux = userRepository.findByUsername(user.getUsername());
-		if(userAux.getUsername().equals(user.getUsername())) {
+		
+		if(userAux!=null) 
 			return true;
-		}
-		return false;
+		else
+			return false;
+		
 	}
 	
 	
