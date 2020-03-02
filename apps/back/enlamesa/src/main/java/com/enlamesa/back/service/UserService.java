@@ -10,7 +10,7 @@ public interface UserService {
 
 	User createUser(User user) throws Exception;
 
-	User updateUser(User user);
+	User updateUser(User user, Integer id);
 	
 	void deleteUser(int idUser);
 	

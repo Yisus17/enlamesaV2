@@ -11,7 +11,7 @@ public class Restaurant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer idRestaurant;
+	private int idRestaurant;
 	
 	@Column(name="name", unique = true)
 	private String name;
@@ -31,24 +31,8 @@ public class Restaurant {
 	@Column(name="address")
 	private String address;
 
-	public Restaurant(Integer idRestaurant, String name, String rif, Float latitude, Float longitude, String schedule,
-			String address) {
-		super();
-		this.idRestaurant = idRestaurant;
-		this.name = name;
-		this.rif = rif;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.schedule = schedule;
-		this.address = address;
-	}
-
 	public Restaurant() {
 		super();
-		
-		
-		this.setLatitude((float) 10.368358);
-		this.setLongitude((float) -66.944095);
 	}
 
 	public Integer getIdRestaurant() {

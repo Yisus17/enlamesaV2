@@ -33,9 +33,9 @@ public class RestaurantController {
 		return restaurantService.createRestaurant(restaurant);
 	}
 	
-	@RequestMapping(method= RequestMethod.PUT)
-	public Restaurant updateRestaurant(@RequestBody Restaurant restaurant) {
-		return restaurantService.updateRestaurant(restaurant);
+	@RequestMapping(value = "/{id}",method= RequestMethod.PUT)
+	public Restaurant updateRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id")Integer id) {
+		return restaurantService.updateRestaurant(restaurant, id);
 	}
 	
 	

@@ -9,7 +9,7 @@ public interface RestaurantService {
 
 	Restaurant createRestaurant(Restaurant restaurant);
 	
-	Restaurant updateRestaurant(Restaurant restaurant);
+	Restaurant updateRestaurant(Restaurant restaurant, Integer id);
 	
 	Boolean deleteRestaurant(int idRestaurant);
 

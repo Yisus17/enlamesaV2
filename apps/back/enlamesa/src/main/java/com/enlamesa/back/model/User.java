@@ -13,13 +13,15 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idUser;
 	
-	
 	@Column(name="username", unique = true)
 	private String username;
 	
 	@Column(name="password")
 	private String password;
 	
+	public User() {
+		super();
+	}
 	
 	public int getIdUser() {
 		return idUser;

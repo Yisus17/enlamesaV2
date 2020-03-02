@@ -32,19 +32,21 @@ public class RestaurantServiceImpl  implements RestaurantService {
 	}
 
 	@Override
-	public Restaurant updateRestaurant(Restaurant restaurant) {
-
-		if(restaurantRepository.existsById(restaurant.getIdRestaurant())){
-			Restaurant restaurantToUpdate = restaurantRepository.getOne(restaurant.getIdRestaurant()); 
-			restaurantToUpdate.setName(restaurant.getName());
-			restaurantToUpdate.setRif(restaurant.getRif());
-			restaurantToUpdate.setLatitude(restaurant.getLatitude());
-			restaurantToUpdate.setLongitude(restaurant.getLongitude());
-			restaurantToUpdate.setSchedule(restaurant.getSchedule());
-			restaurantToUpdate.setAddress(restaurant.getAddress());
-			return restaurantRepository.save(restaurantToUpdate);	
+	public Restaurant updateRestaurant(Restaurant restaurant, Integer id) {
+		Restaurant restaurantToUpdate = new Restaurant();
+		
+		if(restaurantRepository.existsById(id)){
+			restaurantToUpdate = restaurantRepository.getOne(id); 
+		}else {
+			LOG.info("El restaurant con id "+ id+" no existe. Creando restaurant nuevo");
 		}
-		return null;
+		restaurantToUpdate.setName(restaurant.getName());
+		restaurantToUpdate.setRif(restaurant.getRif());
+		restaurantToUpdate.setLatitude(restaurant.getLatitude());
+		restaurantToUpdate.setLongitude(restaurant.getLongitude());
+		restaurantToUpdate.setSchedule(restaurant.getSchedule());
+		restaurantToUpdate.setAddress(restaurant.getAddress());
+		return restaurantRepository.save(restaurantToUpdate);	
 	}
 
 	@Override
