@@ -7,11 +7,13 @@ import com.enlamesa.back.model.User;
 public interface UserService {
 
 	List<User> getUsers();
+	
+	User getUser(Long id);
 
 	User createUser(User user) throws Exception;
 
-	User updateUser(User user, Integer id);
+	User updateUser(User user, Long id) throws Exception;
 	
-	void deleteUser(int idUser);
+	void deleteUser(Long idUser);
 	
 }

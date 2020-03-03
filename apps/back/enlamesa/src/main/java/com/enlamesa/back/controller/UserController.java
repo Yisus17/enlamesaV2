@@ -39,19 +39,24 @@ public class UserController {
 		return userService.getUsers();
 	}
 	
+	@RequestMapping(value = "/{id}",method= RequestMethod.GET)
+	public User getUser( @PathVariable("id")Long id){
+		return userService.getUser(id);
+	}
+	
 	@RequestMapping(method= RequestMethod.POST)
 	public User addUser(@RequestBody User user) throws Exception {
 		return userService.createUser(user);
 	}
 	
 	@RequestMapping(value = "/{id}", method= RequestMethod.PUT)
-	public User updateUser(@RequestBody User user, @PathVariable("id")Integer id) {
+	public User updateUser(@RequestBody User user, @PathVariable("id")Long id) throws Exception {
 		return userService.updateUser(user, id);
 	}
 	
 	
 	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
-	public void deleteUser(@PathVariable("id")Integer id) {
+	public void deleteUser(@PathVariable("id")Long id) {
 		userService.deleteUser(id);
 	}
 
