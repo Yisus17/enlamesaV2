@@ -6,11 +6,13 @@ import java.util.List;
 public interface RestaurantService {
 
 	List<Restaurant> getRestaurants();
+	
+	Restaurant getRestaurantById(Long id) throws Exception;
 
-	Restaurant createRestaurant(Restaurant restaurant);
+	Restaurant createRestaurant(Restaurant restaurant) throws Exception;
 	
-	Restaurant updateRestaurant(Restaurant restaurant, Integer id);
+	Restaurant updateRestaurant(Restaurant restaurant, Long id) throws Exception;
 	
-	Boolean deleteRestaurant(int idRestaurant);
+	Boolean deleteRestaurant(Long idRestaurant) throws Exception;
 
 }

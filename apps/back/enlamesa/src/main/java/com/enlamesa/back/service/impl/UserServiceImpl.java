@@ -17,8 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.enlamesa.back.EnlamesaApplication;
-import com.enlamesa.back.model.Product;
+
 import com.enlamesa.back.model.User;
 import com.enlamesa.back.repository.UserRepository;
 import com.enlamesa.back.service.UserService;
@@ -51,7 +50,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		}else {
 			throw new Exception("User "+ id+" not found");
 		}
-		
 	}
 
 	@Override
@@ -71,10 +69,22 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 		if(userRepository.existsById(id)) {
 			userToUpdate = userRepository.getOne(id);
-			String pass = passwordEncoder.encode(user.getPassword());
-			//En caso de añadir mas campos en BD, hay que añadirlos aquí
-			userToUpdate.setUsername(user.getUsername());
-			userToUpdate.setPassword(pass);
+			
+			//En caso de añadir mas campos en BD, hay que añadirlos al final
+			if(user.getUsername() != null)
+				userToUpdate.setUsername(user.getUsername());
+			if(user.getEmail() != null)
+				userToUpdate.setEmail(user.getEmail());
+			if(user.getEnabled() != null)
+				userToUpdate.setEnabled(user.getEnabled());
+			if(user.getName() != null)
+				userToUpdate.setName(user.getName());
+			if(user.getRoles() != null)
+				userToUpdate.setRoles(user.getRoles());
+			if(user.getLastName() != null)
+				userToUpdate.setLastName(user.getLastName());
+			if(user.getPassword() != null) 		
+				userToUpdate.setPassword(passwordEncoder.encode(user.getPassword())); //encoder de contraseña
 		}else {
 			String errormsg = "El usuario con id "+ id+" no existe.";
 			LOG.info(errormsg);

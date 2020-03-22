@@ -25,8 +25,17 @@ public class ProductServiceImpl implements ProductService{
 	
 	
 	@Override
-	public Product createProduct(Product product) {
-		return productRepository.save(product);	
+	public Product createProduct(Product product) throws Exception {
+		if(product.getName() != null) {
+			Product existingProduct = productRepository.findByName(product.getName());
+			if(existingProduct == null) {
+				return productRepository.save(product);	
+			}else {
+				throw new Exception("Product "+product.getName() +"already exists");
+			}
+		}else {
+			throw new Exception("Missing products name");
+		}
 	}
 
 	@Override
@@ -35,14 +44,21 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product updateProduct(Product product) {
-	    if(productRepository.existsById(product.getIdProduct())){
-	        Product productToUpdate = productRepository.getOne(product.getIdProduct()); 
-	        productToUpdate.setName(product.getName());
-	        productToUpdate.setDescription(product.getDescription());
+	public Product updateProduct(Product product, Long id) throws Exception {
+	    if(productRepository.existsById(id)){
+	        Product productToUpdate = productRepository.getOne(id); 
+	        
+	        if(product.getName()!=null)
+	        	productToUpdate.setName(product.getName());
+	        if(product.getDescription() != null)
+	        	productToUpdate.setDescription(product.getDescription());
+	        
 	        return productRepository.save(productToUpdate);	
+	    }else {
+	    	String errormsg = "El pruducto con id "+ id+" no existe.";
+			LOG.info(errormsg);
+			throw new Exception(errormsg); 
 	    }
-	    return null;
 	}
 
 	@Override

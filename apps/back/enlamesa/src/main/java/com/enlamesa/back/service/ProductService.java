@@ -7,11 +7,11 @@ import com.enlamesa.back.model.Product;
 
 public interface ProductService {
 
-	Product createProduct (Product product);
+	Product createProduct (Product product) throws Exception;
 	
 	List<Product> getProducts();
 	
-	Product updateProduct(Product product);
+	Product updateProduct(Product product, Long id) throws Exception;
 	
 	Boolean deleteProduct(Long idProduct);
 

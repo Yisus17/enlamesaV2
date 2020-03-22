@@ -33,9 +33,9 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping(method= RequestMethod.PUT)
-	public Product updateProduct(@RequestBody Product product) {
-		return productService.updateProduct(product);
+	@RequestMapping(value = "/{id}",method= RequestMethod.PUT)
+	public Product updateProduct(@RequestBody Product product, @PathVariable("id")Long id) throws Exception{
+		return productService.updateProduct(product, id);
 	}
 	
 	
