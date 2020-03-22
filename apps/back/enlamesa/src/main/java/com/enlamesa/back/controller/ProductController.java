@@ -14,7 +14,7 @@ import com.enlamesa.back.service.ProductService;
 
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("api/products")
 public class ProductController {
 
 	
@@ -33,16 +33,20 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping(method= RequestMethod.PUT)
-	public Product updateProduct(@RequestBody Product product) {
-		return productService.updateProduct(product);
+	@RequestMapping(value = "/{id}",method= RequestMethod.PUT)
+	public Product updateProduct(@RequestBody Product product, @PathVariable("id")Long id) throws Exception{
+		return productService.updateProduct(product, id);
 	}
 	
 	
 	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
-	public Boolean deleteProduct(@PathVariable("id")Integer id) {
+	public Boolean deleteProduct(@PathVariable("id")Long id) {
 		return productService.deleteProduct(id);
 	}
 	
+	@RequestMapping(value = "/{id}", method= RequestMethod.GET)
+	public Product getProductById(@PathVariable("id")Long id) throws Exception {
+		return productService.getProductById(id);
+	}
 	
 }

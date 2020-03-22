@@ -16,7 +16,7 @@ import com.enlamesa.back.repository.RestaurantRepository;
 import com.enlamesa.back.service.RestaurantService;
 
 @RestController
-@RequestMapping("/restaurants")
+@RequestMapping("api/restaurants")
 public class RestaurantController {
 
 	@Autowired
@@ -28,19 +28,25 @@ public class RestaurantController {
 		return restaurantService.getRestaurants();
 	}
 	
+	@RequestMapping(value = "/{id}", method= RequestMethod.GET)
+	public Restaurant getRestaurantById(@PathVariable("id")Long id) throws Exception {
+		return restaurantService.getRestaurantById(id);
+	}
+	
+	
 	@RequestMapping(method= RequestMethod.POST)
 	public Restaurant addRestaurant(@RequestBody Restaurant restaurant) throws Exception{
 		return restaurantService.createRestaurant(restaurant);
 	}
 	
 	@RequestMapping(value = "/{id}",method= RequestMethod.PUT)
-	public Restaurant updateRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id")Integer id) {
+	public Restaurant updateRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id")Long id) throws Exception {
 		return restaurantService.updateRestaurant(restaurant, id);
 	}
 	
 	
 	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
-	public Boolean deleteRestaurant(@PathVariable("id")Integer id) {
+	public Boolean deleteRestaurant(@PathVariable("id")Long id) throws Exception {
 		return restaurantService.deleteRestaurant(id);
 	}
 	

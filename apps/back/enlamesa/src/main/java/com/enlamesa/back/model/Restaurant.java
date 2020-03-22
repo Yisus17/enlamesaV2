@@ -11,7 +11,7 @@ public class Restaurant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idRestaurant;
+	private Long idRestaurant;
 	
 	@Column(name="name", unique = true)
 	private String name;
@@ -35,11 +35,11 @@ public class Restaurant {
 		super();
 	}
 
-	public Integer getIdRestaurant() {
+	public Long getIdRestaurant() {
 		return idRestaurant;
 	}
 
-	public void setIdRestaurant(Integer idRestaurant) {
+	public void setIdRestaurant(Long idRestaurant) {
 		this.idRestaurant = idRestaurant;
 	}
 
