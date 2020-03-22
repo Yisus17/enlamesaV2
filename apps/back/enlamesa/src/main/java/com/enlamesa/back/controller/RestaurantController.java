@@ -16,7 +16,7 @@ import com.enlamesa.back.repository.RestaurantRepository;
 import com.enlamesa.back.service.RestaurantService;
 
 @RestController
-@RequestMapping("/restaurants")
+@RequestMapping("api/restaurants")
 public class RestaurantController {
 
 	@Autowired

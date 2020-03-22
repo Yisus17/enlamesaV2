@@ -11,7 +11,7 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer idProduct;
+	private Long idProduct;
 	
 	@Column(name="name", unique = true)
 	private String name;
@@ -19,7 +19,7 @@ public class Product {
 	@Column(name="description")
 	private String description;
 	
-	public Product(Integer idProduct, String name, String description) {
+	public Product(Long idProduct, String name, String description) {
 		super();
 		this.idProduct = idProduct;
 		this.name = name;
@@ -31,11 +31,11 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getIdProduct() {
+	public Long getIdProduct() {
 		return idProduct;
 	}
 
-	public void setIdProduct(Integer idProduct) {
+	public void setIdProduct(Long idProduct) {
 		this.idProduct = idProduct;
 	}
 

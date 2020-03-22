@@ -2,6 +2,7 @@ package com.enlamesa.back.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,11 +46,23 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Boolean deleteProduct(int idProduct) {
+	public Boolean deleteProduct(Long idProduct) {
 		if(productRepository.existsById(idProduct)) {
 			productRepository.deleteById(idProduct);
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public Product getProductById(Long id) throws Exception{
+		Optional<Product> productOpt = productRepository.findById(id);
+		Product result = null;
+		if(productOpt.isPresent()) {
+			result =  productOpt.get();
+		}else {
+			throw new Exception("Product "+ id+" not found");
+		}
+		return result;
 	}	
 }

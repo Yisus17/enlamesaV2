@@ -1,0 +1,20 @@
+POST /auth/token
+
+header
+    Authorization: Basic Base64(client_id:client_secret)
+    Contenty-type: application/x-www-form-unlencode
+
+Body
+    grandt_type = password
+    username = jesus
+    password = jesus
+
+    RETORNA EL TOKEN
+
+
+
+Peticiones de recursos: URL + TOKEN (en el header)
+
+
+
+

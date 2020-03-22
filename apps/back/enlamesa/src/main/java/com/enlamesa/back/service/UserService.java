@@ -8,7 +8,7 @@ public interface UserService {
 
 	List<User> getUsers();
 	
-	User getUser(Long id);
+	User getUser(Long id) throws Exception;
 
 	User createUser(User user) throws Exception;
 

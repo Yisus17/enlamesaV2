@@ -24,7 +24,7 @@ import com.enlamesa.back.service.UserService;
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("api/users")
 public class UserController {
 
 	private static Logger LOG = LoggerFactory.getLogger(UserController.class);
@@ -40,7 +40,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/{id}",method= RequestMethod.GET)
-	public User getUser( @PathVariable("id")Long id){
+	public User getUser( @PathVariable("id")Long id) throws Exception{
 		return userService.getUser(id);
 	}
 	
